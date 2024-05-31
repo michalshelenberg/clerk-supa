@@ -1,3 +1,5 @@
+Example of Next.js app router server side Clerk authentication with fetching and inserting user's data to Supabase table.
+
 ## Resources
 
 ### Authentication with Clerk and fetching user's notes from Supabase table
