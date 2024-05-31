@@ -1,3 +1,4 @@
+import AddForm from "@/components/add-form";
 import { supabaseClient } from "@/lib/supabaseClient";
 import { auth } from "@clerk/nextjs/server";
 
@@ -20,12 +21,14 @@ async function getNotes() {
 export default async function Page() {
   const notes = await getNotes();
 
+  const { userId } = auth();
+
   return (
     <main>
       {notes?.map((note) => (
-        <p>{note.value}</p>
+        <p key={note.id}>{note.value}</p>
       ))}
-      <form action=""></form>
+      {userId && <AddForm />}
     </main>
   );
 }
